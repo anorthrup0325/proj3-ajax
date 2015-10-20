@@ -148,8 +148,11 @@
 		var s_time = $s_time.timepicker('getTime', s_date);
 		var start_time = moment(s_time).format();
 		function updateTimes() {
+			// Update the first row specifically since it doesn't have an input field
+			updateTime($first_row, '0', true);
+			// Update the non-empty things (won't add row on accident)
 			$('input[name="km"]').filter(function() {
-				return $(this).val().length > 0;
+				return $(this).text().length > 0;
 			}).trigger('change');
 		}
 		$s_time.on('change', function() {
