@@ -137,7 +137,11 @@
 		// Time inputs
 		var $s_date = $('#start-date');
 		var $s_time = $('#start-time');
-		$s_date.datepicker();
+		$s_date.datepicker({
+			onSelect: function() {
+				$(this).trigger('change');
+			}
+		});
 		$s_time.timepicker({orientation: 'bl'});
 		
 		// Time stuffs
@@ -162,7 +166,7 @@
 		});
 		$s_date.on('change', function() {
 			s_date = $s_date.datepicker('getDate');
-			$s_timer.trigger('change');
+			$s_time.trigger('change');
 		});
 		
 		// Brevet distance stuffs
