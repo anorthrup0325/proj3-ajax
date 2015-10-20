@@ -107,7 +107,7 @@ def calc_times():
   brevet = request.args.get('brevet', 0, type=int)
   start_time = request.args.get('start', 0)
   if miles > brevet * 1.1:
-  	 return jsonify(error="ERROR: Longer than 120% brevet distance")
+  	 return jsonify(error="ERROR: Longer than 110% brevet distance")
   start_time = arrow.get(start_time)
   time_start = start_time.replace(hours=+calc_min_time(miles, brevet)).isoformat()
   time_end = start_time.replace(hours=+calc_max_time(miles, brevet)).isoformat()
