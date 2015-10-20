@@ -9,6 +9,6 @@ import cgitb
 cgitb.enable()
 
 from wsgiref.handlers import CGIHandler
-from syllabus import app
+from app import app
 
 CGIHandler().run(app)
