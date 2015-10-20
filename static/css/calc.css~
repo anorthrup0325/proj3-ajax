@@ -9,3 +9,14 @@
 form .row {
 	margin-top: 10px;
 }
+
+.hide-me {
+	display: none;
+}
+
+.form-inline .form-control {
+    width:auto;
+}
+.form-inline .form-group {
+    display: inline-block;
+}

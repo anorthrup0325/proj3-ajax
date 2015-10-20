@@ -1,22 +1,13 @@
-# proj3-ajax
-Reimplement the RUSA ACP controle time calculator with flask and ajax
+# RUSA ACP Rules Implementation
 
-## ACP controle times
+ - Brevet distances: 200km, 400km, 600km, 1000km, 1300km
+ - Starting date and time input by user
+ - Input distances km only
+ - Min and max times apply to ranges [0, 200] (200, 400] (400, 600] (600, 1000] (1000, 1300]. Where [x,y] means from x to y inclusive of both and (x,y] means x to y inclusive of y only.
 
-That's "controle" with an 'e', because it's French, although "control" is also accepted.  Controls are points where 
-a rider must obtain proof of passage, and control[e] times are the minimum and maximum times by which the rider must
-arrive at the location.  
+# Finding a time
 
-The algorithm for calculating controle times is described at http://www.rusa.org/octime_alg.html . The description is ambiguous, but the examples help.  Part of finishing this project is clarifying anything that is not clear about the requirements, and documenting it clearly. 
-
-We are essentially replacing the calculator at http://www.rusa.org/octime_acp.html .  We can also use that calculator to clarify requirements.  
-
-## AJAX and Flask reimplementation
-
-The current RUSA controle time calculator is a Perl script that takes an HTML form and emits a text page. The reimplementation will fill in times as the input fields are filled.  Each time a distance is filled in, the corresponding open and close times should be filled in.   If no begin time has been provided, use 0:00 as the begin time. 
-
-I will leave much of the design to you.  
-
-## Testing
-
-A requirement of this project will be designing a systematic test suite. 
+ - Take the first 200km using the [0, 200] speed
+ - Take the next 200km using the (200, 400] speed
+ - Repeat based on the size of a range through all ranges
+ - For control points higher than brevet distance, use the brevet distance speed for the excess. That is 200km brevet, 235km control point = 200km @ 200km spd + 35 @ 200km speed

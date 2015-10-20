@@ -94,7 +94,7 @@
 			<input type="text" name="start-time" id="start-time" />
 		</div>
 	</div>
-	<div class="row alert alert-danger" id="error-alert">
+	<div class="row alert alert-danger hide-me" id="error-alert">
 		<div class="col-md-12" id="error-content">
 			There is no final control point.
 		</div>
